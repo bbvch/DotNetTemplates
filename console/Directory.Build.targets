@@ -1,0 +1,26 @@
+<Project>
+  <Target Name="InitializeSourceControlInformation" BeforeTargets="AddSourceRevisionToInformationalVersion">
+    <Exec
+      Command="git describe --always --dirty=*"
+      ConsoleToMSBuild="True"
+      IgnoreExitCode="False"
+      StandardOutputImportance="low">
+      <Output PropertyName="SourceRevisionId" TaskParameter="ConsoleOutput" />
+    </Exec>
+  </Target>
+  <Target Name="BuildDate" BeforeTargets="CoreCompile" DependsOnTargets="PrepareForBuild">
+    <PropertyGroup>
+      <SharedAssemblyInfoFile>$(IntermediateOutputPath)CustomAssemblyInfo.cs</SharedAssemblyInfoFile>
+    </PropertyGroup>
+    <ItemGroup>
+      <Compile Include="$(SharedAssemblyInfoFile)" />
+    </ItemGroup>
+    <ItemGroup>
+      <AssemblyAttributes Include="AssemblyMetadata">
+        <_Parameter1>BuildDate</_Parameter1>
+        <_Parameter2>$([System.DateTime]::UtcNow.ToString("u"))</_Parameter2>
+      </AssemblyAttributes>
+    </ItemGroup>
+    <WriteCodeFragment Language="C#" OutputFile="$(SharedAssemblyInfoFile)" AssemblyAttributes="@(AssemblyAttributes)" />
+  </Target>
+</Project>

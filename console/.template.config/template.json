@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "name": "bbv.net console template",
+  "shortName": "bbv.net.console",
+  "description": "Opinionated .NET C# console starter template",
+  "author": "bbv .NET community",
+  "identity": "ch.bbv.net.standard",
+  "classifications": ["starter", "console"],
+  "sourceName": "SolutionName",
+  "preferNameDirectory": true,
+  "tags": { "language": "C#", "type": "project" },
+  "symbols": {
+    "includeSln": {
+      "description": "Generate a .sln file",
+      "datatype": "bool",
+      "type": "parameter",
+      "defaultValue": "false"
+    },
+    "projectName": {
+      "description": "The name of the project",
+      "datatype": "text",
+      "isRequired": true,
+      "fileRename": "ProjectNameToReplace",
+      "replaces": "ProjectNameToReplace",
+      "type": "parameter"
+    },
+    "excludeUserEditable": {
+      "description": "exclude user-editable files",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "type": "parameter"
+    }
+  },
+  "sources": [
+    {
+      "exclude": [
+        ".template.config/**",
+        ".vs/**",
+        "**/bin/**",
+        "**/obj/**",
+        "**/*.user",
+        "SolutionName.*",
+        "src/AssemblyInfo.cs",
+        "src/stylecop.json"
+      ]
+    },
+    {
+      "condition": "excludeUserEditable",
+      "exclude": [
+        ".editorconfig",
+        ".gitattributes",
+        ".gitignore",
+        "global.json"
+      ]
+    },
+    {
+      "condition": "includeSln",
+      "include": ["SolutionName.*", "src/AssemblyInfo.cs", "src/stylecop.json"]
+    }
+  ],
+  "postActions": [
+    {
+      "condition": "!includeSln",
+      "actionId": "AC1156F7-BB77-4DB8-B28F-24EEBCCA1E5C",
+      "manualInstructions": [{ "text": "Add the projects to your solution" }]
+    }
+  ]
+}
