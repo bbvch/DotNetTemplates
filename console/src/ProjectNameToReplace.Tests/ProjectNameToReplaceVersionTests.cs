@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
@@ -7,7 +8,7 @@ using Xunit;
 
 namespace SolutionName.ProjectNameToReplace
 {
-    public class ProjectNameToReplaceVersionTests
+    public partial class ProjectNameToReplaceVersionTests
     {
         private readonly Assembly assembly = typeof(Program).Assembly;
 
@@ -16,7 +17,7 @@ namespace SolutionName.ProjectNameToReplace
         {
             var version = this.assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>();
             version!.InformationalVersion.Should().MatchRegex(
-                new Regex(@"\d.\d.\d\+[a-z0-9]{7,}\*?"),
+                Version(),
                 "the version should be suffixed by the git hash with dirty flag");
         }
 
@@ -24,9 +25,12 @@ namespace SolutionName.ProjectNameToReplace
         public void IsTimestamped()
         {
             var metadata = this.assembly.GetCustomAttributes<AssemblyMetadataAttribute>();
-            metadata.Single(_ => _.Key == "BuildDate").Value.Should().Match(_ => Timestamp(_));
+            metadata.Single(m => m.Key == "BuildDate").Value.Should().Match(buildDate => Timestamp(buildDate));
         }
 
-        private static bool Timestamp(string value) => DateTime.TryParse(value, out _);
+        private static bool Timestamp(string value) => DateTime.TryParse(value, CultureInfo.InvariantCulture, out _);
+
+        [GeneratedRegex(@"\d.\d.\d\+[a-z0-9]{7,}\*?")]
+        private static partial Regex Version();
     }
 }

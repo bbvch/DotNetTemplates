@@ -5,9 +5,10 @@ namespace SolutionName.ProjectNameToReplace
 {
     public static class Program
     {
-        public static Task Main(string[] args)
+        public static async Task<int> Main(string[] args)
         {
-            return Console.Error.WriteLineAsync($"Got {args.Length - 1} arguments");
+            await Console.Error.WriteLineAsync($"Got {args.Length - 1} arguments");
+            return 0;
         }
     }
 }

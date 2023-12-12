@@ -1,18 +1,18 @@
 {
   "version": 1,
   "dependencies": {
-    ".NETCoreApp,Version=v5.0": {
-      "Microsoft.CodeAnalysis.NetAnalyzers": {
+    "net8.0": {
+      "Microsoft.NET.ILLink.Tasks": {
         "type": "Direct",
-        "requested": "[5.0.3, )",
-        "resolved": "5.0.3",
-        "contentHash": "7rw0JUPSAVGR0HPekQiQvwGPor44p/Ek21+wZABraG4bVYNrSkx98ZZsxSxG5jJ4oqjACJxea8E62UO0dsKDBw=="
+        "requested": "[8.0.0, )",
+        "resolved": "8.0.0",
+        "contentHash": "B3etT5XQ2nlWkZGO2m/ytDYrOmSsQG1XNBaM6ZYlX5Ch/tDrMFadr0/mK6gjZwaQc55g+5+WZMw4Cz3m8VEF7g=="
       },
       "SonarAnalyzer.CSharp": {
         "type": "Direct",
-        "requested": "[8.27.0.35380, )",
-        "resolved": "8.27.0.35380",
-        "contentHash": "ua8Gf3SvaKb/pAtU3aMPA+uu29SVBFr0WwipPpFhfA31SOaW3dcngj0J1kh8KfTa65QEaNmU/IbMd5MOxWaoig=="
+        "requested": "[9.15.0.81779, )",
+        "resolved": "9.15.0.81779",
+        "contentHash": "Aln//O6aJLSuxGBgOign89w/+O8uuIC+0saU+q5vDZYeqQ1FkhT9Ua/TvjisBN4Br91lQ0sSzRsHik4cbXi08A=="
       },
       "StyleCop.Analyzers": {
         "type": "Direct",
@@ -27,12 +27,9 @@
         "type": "Transitive",
         "resolved": "1.2.0.354",
         "contentHash": "/3RlM31XbJ02gaWh7dVumWOyMvGHswb/zygGJXd9oEJMRyyYc/HFJlAC5gBPxvi9cB4CMvIyyUTmZz5VLKwTvg=="
-      },
-      "SolutionName.Common.Core": {
-        "type": "Project"
       }
     },
-    ".NETCoreApp,Version=v5.0/linux-x64": {},
-    ".NETCoreApp,Version=v5.0/win-x64": {}
+    "net8.0/linux-x64": {},
+    "net8.0/win-x64": {}
   }
 }
