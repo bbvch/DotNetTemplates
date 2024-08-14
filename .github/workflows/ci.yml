@@ -1,0 +1,20 @@
+on:
+  pull_request:
+  push:
+    branches: [main]
+env:
+  DOTNET_NOLOGO: true
+permissions: {}
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      statuses: write
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-dotnet@6bd8b7f7774af54e05809fcc5431931b3eb1ddee # v4
+      - run: dotnet test console -c Release
