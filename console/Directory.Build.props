@@ -23,5 +23,10 @@
   <ItemGroup>
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)src/stylecop.json" />
     <Compile Include="$(MSBuildThisFileDirectory)src/AssemblyInfo.cs" />
+    <AssemblyAttribute Include="AssemblyMetadata">
+      <_Parameter1>BuildDate</_Parameter1>
+      <_Parameter2 Condition="'$(Configuration)'=='Release'">$([System.DateTime]::UtcNow.ToString("u"))</_Parameter2>
+      <_Parameter2 Condition="'$(Configuration)'!='Release'">$([System.DateTime]::Now.ToString("yyyy-MM-dd"))</_Parameter2>
+    </AssemblyAttribute>
   </ItemGroup>
 </Project>
