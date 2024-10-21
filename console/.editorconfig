@@ -37,6 +37,7 @@ dotnet_code_quality.api_surface = public, internal, private
 dotnet_analyzer_diagnostic.severity = warning
 
 dotnet_diagnostic.CA1062.severity = none
+dotnet_diagnostic.CA1515.severity = none
 dotnet_diagnostic.CA2007.severity = none
 
 dotnet_diagnostic.IDE0003.severity = none

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <RootNamespace>SolutionName.$(MSBuildProjectName)</RootNamespace>
     <AssemblyName>SolutionName.$(MSBuildProjectName)</AssemblyName>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
     <Nullable>enable</Nullable>
     <AnalysisMode>All</AnalysisMode>
@@ -28,5 +28,7 @@
       <_Parameter2 Condition="'$(Configuration)'=='Release'">$([System.DateTime]::UtcNow.ToString("u"))</_Parameter2>
       <_Parameter2 Condition="'$(Configuration)'!='Release'">$([System.DateTime]::Now.ToString("yyyy-MM-dd"))</_Parameter2>
     </AssemblyAttribute>
+    <RuntimeHostConfigurationOption Include="System.Text.Json.Serialization.RespectNullableAnnotationsDefault" Value="true" />
+    <RuntimeHostConfigurationOption Include="System.Text.Json.Serialization.RespectRequiredConstructorParametersDefault" Value="true" />
   </ItemGroup>
 </Project>
