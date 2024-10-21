@@ -4,7 +4,7 @@
   <PropertyGroup>
     <RootNamespace>SolutionName.$(MSBuildProjectName)</RootNamespace>
     <AssemblyName>SolutionName.$(MSBuildProjectName)</AssemblyName>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
     <Nullable>enable</Nullable>
     <AnalysisMode>All</AnalysisMode>
@@ -23,5 +23,7 @@
   <ItemGroup>
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)src/stylecop.json" />
     <Compile Include="$(MSBuildThisFileDirectory)src/AssemblyInfo.cs" />
+    <RuntimeHostConfigurationOption Include="System.Text.Json.Serialization.RespectNullableAnnotationsDefault" Value="true" />
+    <RuntimeHostConfigurationOption Include="System.Text.Json.Serialization.RespectRequiredConstructorParametersDefault" Value="true" />
   </ItemGroup>
 </Project>
