@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/SolutionItems/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Build.targets" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="src/ProjectNameToReplace.Tests/ProjectNameToReplace.Tests.csproj" />
+  <Project Path="src/ProjectNameToReplace/ProjectNameToReplace.csproj" />
+</Solution>
